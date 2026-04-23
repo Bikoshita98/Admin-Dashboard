@@ -1,3 +1,7 @@
 <nav>
   <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+
+    @if(role === 'ADMIN') {
+      <a routerLink="/users">Users</a>
+    }
 </nav>
