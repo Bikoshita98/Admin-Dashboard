@@ -1,4 +1,17 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__left">
+    <span class="header__title">Enterprise Dashboard</span>
+  </div>
 
+  <div class="header__actions">
+    <button
+      class="header__icon-btn"
+      (click)="themeService.toggle()"
+      [attr.aria-label]="themeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+    >
+      {{ themeService.isDark() ? '☀️' : '🌙' }}
+    </button>
 
-<button (click)="logout()">Logout</button>
+    <button class="header__logout-btn" (click)="logout()">Logout</button>
+  </div>
+</header>

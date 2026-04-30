@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { of, delay } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { User } from '../../core/models/user.model';
 import { authStore } from './auth.store';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  login(email: string, password: string) {
-    // Simulate an API call with a delay
+  private apiUrl = environment.apiUrl;
+
+  login(email: string, _password: string) {
+    // TODO: replace with this.http.post(`${this.apiUrl}/auth/login`, { email, password })
     const mockUser: User = {
       id: '1',
       name: 'John Doe',
-      email: email,
+      email,
       role: email.includes('admin') ? 'ADMIN' : 'MANAGER',
       token: 'fake-jwt-token',
     };

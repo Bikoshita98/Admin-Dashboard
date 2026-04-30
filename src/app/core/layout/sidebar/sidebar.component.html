@@ -1,7 +1,9 @@
-<nav>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+<div class="sidebar-brand">EP Dash</div>
 
-    @if(role === 'ADMIN') {
-      <a routerLink="/users">Users</a>
-    }
+<nav>
+  <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"> Dashboard </a>
+
+  @if (role === 'ADMIN') {
+    <a class="nav-link" routerLink="/users" routerLinkActive="active"> Users </a>
+  }
 </nav>

@@ -9,10 +9,12 @@ class AuthStore {
   role = computed(() => this._user()?.role);
 
   init() {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      this._user.set(JSON.parse(storedUser));
-    }
+    const stored = localStorage.getItem('user');
+    if (stored) this._user.set(JSON.parse(stored));
+  }
+
+  set(user: User) {
+    this._user.set(user);
   }
 
   clear() {

@@ -1,5 +1,76 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}/* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// ── Light theme (default) ─────────────────────────────────────────────────────
+:root,
+[data-theme='light'] {
+  --color-bg: #f1f5f9;
+  --color-bg-card: #ffffff;
+  --color-sidebar-bg: #1e293b;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-text-active: #ffffff;
+  --color-header-bg: #ffffff;
+  --color-header-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-warning: #eab308;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+// ── Dark theme ────────────────────────────────────────────────────────────────
+[data-theme='dark'] {
+  --color-bg: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-sidebar-bg: #020617;
+  --color-sidebar-text: #64748b;
+  --color-sidebar-text-active: #f8fafc;
+  --color-header-bg: #1e293b;
+  --color-header-border: #334155;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-border: #334155;
+  --color-accent: #60a5fa;
+  --color-accent-hover: #3b82f6;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-warning: #facc15;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+// ── Base ──────────────────────────────────────────────────────────────────────
+html,
+body {
+  height: 100%;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-size: 16px;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
