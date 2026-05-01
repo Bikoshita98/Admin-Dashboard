@@ -15,12 +15,38 @@ export class LoginComponent {
 
   email = '';
   password = '';
+  isLoading = false;
+  errorMessage = '';
 
   onLogin() {
+    this.errorMessage = '';
+
+    if (!this.email || !this.password) {
+      this.errorMessage = 'Email and password are required.';
+      return;
+    }
+
+    this.isLoading = true;
+
     this.authService.login(this.email, this.password).subscribe((user) => {
       localStorage.setItem('user', JSON.stringify(user));
       authStore.set(user);
       this.router.navigate(['/dashboard']);
+    });
+
+    this.authService.login(this.email, this.password).subscribe({
+      next: (user) => {
+        localStorage.setItem('user', JSON.stringify(user));
+        authStore.set(user);
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.errorMessage = 'Login failed. Please check your credentials.';
+        console.error('Login error:', err);
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
     });
   }
 }
