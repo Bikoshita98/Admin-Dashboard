@@ -1,0 +1,64 @@
+<div class="users">
+  <div class="users__header">
+    <div>
+      <h1 class="users__title">Users</h1>
+      <p class="users__subtitle">{{ filteredUsers().length }} user(s) found</p>
+    </div>
+  </div>
+
+  <div class="users__filters">
+    <input
+      class="users__search"
+      type="text"
+      placeholder="Search by name or email..."
+      [value]="searchQuery()"
+      (input)="onSearch($any($event.target).value)"
+    />
+
+    <div class="users__role-filters">
+      @for (option of roleOptions; track option) {
+        <button
+          class="role-btn"
+          [class.active]="roleFilter() === option"
+          (click)="onRoleFilter(option)"
+        >
+          {{ option }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Joined</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (filteredUsers().length === 0) {
+          <tr>
+            <td colspan="5" class="users-table__empty">No users match your search.</td>
+          </tr>
+        }
+        @for (user of filteredUsers(); track user.id) {
+          <tr>
+            <td class="users-table__name">{{ user.name }}</td>
+            <td class="users-table__email">{{ user.email }}</td>
+            <td>
+              <span class="badge badge--{{ user.role.toLowerCase() }}">{{ user.role }}</span>
+            </td>
+            <td>
+              <span class="badge badge--{{ user.status.toLowerCase() }}">{{ user.status }}</span>
+            </td>
+            <td class="users-table__date">{{ user.joinedAt }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
