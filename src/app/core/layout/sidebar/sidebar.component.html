@@ -2,8 +2,5 @@
 
 <nav>
   <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"> Dashboard </a>
-
-  @if (role === 'ADMIN') {
-    <a class="nav-link" routerLink="/users" routerLinkActive="active"> Users </a>
-  }
+  <a class="nav-link" routerLink="/users" routerLinkActive="active" *appHasRole="'ADMIN'">Users</a>
 </nav>
