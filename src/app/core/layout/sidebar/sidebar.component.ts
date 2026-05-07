@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HasRoleDirective } from '../../../shared/directives/has-role.directive';
 
@@ -7,5 +7,6 @@ import { HasRoleDirective } from '../../../shared/directives/has-role.directive'
   imports: [RouterLink, RouterLinkActive, HasRoleDirective],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {}

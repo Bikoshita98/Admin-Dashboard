@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 interface StatCard {
   label: string;
@@ -17,6 +17,7 @@ interface ActivityItem {
   imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {
   stats: StatCard[] = [

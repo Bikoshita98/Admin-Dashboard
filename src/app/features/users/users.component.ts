@@ -1,4 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserRecord, Role } from '../../core/models/user.model';
 
@@ -92,6 +92,7 @@ type RoleFilter = Role | 'ALL';
   imports: [FormsModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersComponent {
   searchQuery = signal('');
