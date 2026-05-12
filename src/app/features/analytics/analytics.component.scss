@@ -1,0 +1,174 @@
+.analytics {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.analytics__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.analytics__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.analytics__subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.analytics__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Chart Card ────────────────────────────────────────────────────────────────
+
+.chart-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.chart-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+// ── Bar Chart ─────────────────────────────────────────────────────────────────
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  height: 200px;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.bar-chart__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  gap: 0.4rem;
+}
+
+.bar-chart__value {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.bar-chart__track {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar-chart__bar {
+  width: 100%;
+  background: var(--color-accent);
+  border-radius: 6px 6px 0 0;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.bar-chart__label {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+// ── Role Distribution ─────────────────────────────────────────────────────────
+
+.role-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.role-item__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.role-item__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.role-item__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.role-item__count {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.role-item__track {
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.role-item__bar {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+// ── Line Chart ────────────────────────────────────────────────────────────────
+
+.line-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.line-chart__svg {
+  width: 100%;
+  height: 140px;
+  overflow: visible;
+}
+
+.line-chart__labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+
+  span {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+}

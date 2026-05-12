@@ -4,12 +4,11 @@ import { roleGuard } from './features/auth/role.guard';
 import { authGuard } from './features/auth/auth.guard';
 
 export const routes: Routes = [
-    // 🔓 PUBLIC ROUTES
+  // 🔓 PUBLIC ROUTES
   {
     path: 'login',
     loadComponent: () =>
-      import('./features/auth/login/login.component')
-        .then(m => m.LoginComponent)
+      import('./features/auth/login/login.component').then((m) => m.LoginComponent),
   },
 
   // 🔒 PROTECTED ROUTES
@@ -21,18 +20,21 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadComponent: () =>
-          import('./features/dashboard/dashboard.component').then(
-            (m) => m.DashboardComponent,
-          ),
+          import('./features/dashboard/dashboard.component').then((m) => m.DashboardComponent),
       },
       {
         path: 'users',
         loadComponent: () =>
-          import('./features/users/users.component').then(
-            (m) => m.UsersComponent,
-          ),
+          import('./features/users/users.component').then((m) => m.UsersComponent),
         canActivate: [roleGuard],
         data: { roles: ['ADMIN'] },
+      },
+      {
+        path: 'analytics',
+        loadComponent: () =>
+          import('./features/analytics/analytics.component').then((m) => m.AnalyticsComponent),
+        canActivate: [roleGuard],
+        data: { roles: ['ADMIN', 'USER'] },
       },
       {
         path: '',
