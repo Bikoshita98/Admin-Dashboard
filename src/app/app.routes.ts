@@ -37,6 +37,13 @@ export const routes: Routes = [
         data: { roles: ['ADMIN', 'USER'] },
       },
       {
+        path: 'audit-log',
+        loadComponent: () =>
+          import('./features/audit-log/audit-log.component').then((m) => m.AuditLogComponent),
+        canActivate: [roleGuard],
+        data: { roles: ['ADMIN'] },
+      },
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
