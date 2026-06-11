@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { FeatureFlagDirective } from '../../shared/directives/feature-flag.directive';
 
 interface StatCard {
   label: string;
@@ -14,7 +15,7 @@ interface ActivityItem {
 }
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [FeatureFlagDirective],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

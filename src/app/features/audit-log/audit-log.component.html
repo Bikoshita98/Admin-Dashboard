@@ -1,1 +1,52 @@
-<p>audit-log works!</p>
+<div class="audit-log">
+  <div class="audit-log__header">
+    <div>
+      <h1 class="audit-log__title">Audit Log</h1>
+      <p class="audit-log__subtitle">{{ filteredLogs().length }} event(s) recorded</p>
+    </div>
+  </div>
+
+  <div class="audit-log__filters">
+    @for (option of severityOptions; track option) {
+      <button
+        class="severity-btn severity-btn--{{ option.toLowerCase() }}"
+        [class.active]="severityFilter() === option"
+        (click)="onSeverityFilter(option)"
+      >
+        {{ option }}
+      </button>
+    }
+  </div>
+
+  <div class="table-wrapper">
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Performed By</th>
+          <th>Target</th>
+          <th>Timestamp</th>
+          <th>Severity</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (filteredLogs().length === 0) {
+          <tr>
+            <td colspan="5" class="audit-table__empty">No events match the selected filter.</td>
+          </tr>
+        }
+        @for (log of filteredLogs(); track log.id) {
+          <tr>
+            <td class="audit-table__action">{{ log.action }}</td>
+            <td>{{ log.performedBy }}</td>
+            <td class="audit-table__target">{{ log.target }}</td>
+            <td class="audit-table__timestamp">{{ log.timestamp }}</td>
+            <td>
+              <span class="badge badge--{{ log.severity }}">{{ log.severity }}</span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

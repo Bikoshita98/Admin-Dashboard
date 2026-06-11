@@ -2,15 +2,15 @@
 
 <nav>
   <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"> Dashboard </a>
-  <a class="nav-link" routerLink="/users" routerLinkActive="active" *hasRole="'ADMIN'">Users</a>
+  <a class="nav-link" routerLink="/users" routerLinkActive="active" *appHasRole="'ADMIN'">Users</a>
   <a
     class="nav-link"
     routerLink="/analytics"
     routerLinkActive="active"
-    *hasRole="['ADMIN', 'MANAGER']"
+    *appHasRole="['ADMIN', 'MANAGER']"
     >Analytics</a
   >
-  <a class="nav-link" routerLink="/audit-log" routerLinkActive="active" *hasRole="'ADMIN'"
+  <a class="nav-link" routerLink="/audit-log" routerLinkActive="active" *appHasRole="'ADMIN'"
     >Audit Log</a
   >
 </nav>
